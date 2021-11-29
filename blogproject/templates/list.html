@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+
+{%block header%}
+<div class="card bg-dark text-white">
+    <img src="..." class="card-img" alt="...">
+    <div class="card-img-overlay">
+      <h5 class="card-title">MYブログ</h5>
+        <p class="card-text">記事一覧です</p>
+    </div>
+</div>
+{%endblock header%}
+
+{%block content%}
+    <div class="container">
+        {%for item in object_list%}
+    <div class="card">
+        <h5 class="card-header">{{item.category}}</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <h6 class="card-title">{{item.postdate}}</h6>
+          <a href="{%url 'detail' item.pk %}" class="btn btn-primary">詳細へ</a>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+
+{%endblock content%}
